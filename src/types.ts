@@ -60,6 +60,7 @@ type WorkforceUtilisation = {
   utilisationRateYearToDate?: string;
   utilisationRatePreviousQuarter?: string;
   _definitionId: string;
+  quarterEarnings?: QuarterEarnings[];
   lastThreeMonthsIndividually?: LastThreeMonthsIndividually[];
 };
 
@@ -99,6 +100,7 @@ type Employee = {
 type ExternalEmployee = Employee & {
   salutation?: string;
   email?: string;
+  monthlyCost?: string;
 };
 
 type EmploymentStatus = {
@@ -131,8 +133,16 @@ export type TableDataType = {
   person: string;
   past12Months: string;
   y2d: string;
-  may: string;
   june: string;
   july: string;
+  august: string;
   netEarningsPrevMonth: string;
+  isExternal?: boolean; // Optional property to indicate if the employee is external mb will be removed
+};
+
+export type PercentageType = string | number | undefined;
+
+export type QuarterEarning = {
+  name: string;
+  earnings: string;
 };
